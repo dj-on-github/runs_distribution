@@ -98,8 +98,8 @@ void print_csv(uint64_t symbol_count) {
     for(length=1;length<MAX_RUN_LENGTH+1;length++) { 
       ones_frequency = ones_run_frequency[length];
       zeroes_frequency = zeroes_run_frequency[length];
-      ones_prob = ones_run_frequency[length]/symbol_count;
-      zeroes_prob = zeroes_run_frequency[length]/symbol_count;
+      ones_prob = (double)(ones_run_frequency[length])/(double)symbol_count;
+      zeroes_prob = (double)zeroes_run_frequency[length]/(double)symbol_count;
       printf("%02d, %0.8f, %" PRIu64 ", %08f, %" PRIu64 "\n",length, zeroes_prob, zeroes_frequency, ones_prob, ones_frequency);
     }
 }
