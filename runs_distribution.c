@@ -93,14 +93,31 @@ void print_csv(uint64_t symbol_count) {
     double ones_prob;
     double zeroes_prob;
 
-    printf("run_length, zeroes_run_probability, zeroes_run_frequency, ones_run_probability, ones_run_frequency\n");
+    char prob1[30];
+    char prob2[30];
+
+    printf("%*s, %*s, %*s, %*s, %*s\n",
+                10,"run_length",
+                23, "zeroes_run_probability",
+                21, "zeroes_run_frequency",
+                20, "ones_run_probability",
+                18, "ones_run_frequency");
+
 
     for(length=1;length<MAX_RUN_LENGTH+1;length++) { 
       ones_frequency = ones_run_frequency[length];
       zeroes_frequency = zeroes_run_frequency[length];
       ones_prob = (double)(ones_run_frequency[length])/(double)symbol_count;
       zeroes_prob = (double)zeroes_run_frequency[length]/(double)symbol_count;
-      printf("%02d, %0.8f, %" PRIu64 ", %08f, %" PRIu64 "\n",length, zeroes_prob, zeroes_frequency, ones_prob, ones_frequency);
+        
+      sprintf(prob1, "%0.14f",zeroes_prob);
+      sprintf(prob2, "%0.14f",ones_prob);
+      printf("%*d, %*s, %*" PRIu64 ", %*s, %*" PRIu64 "\n",
+              10,length,
+              23,prob1,
+              21,zeroes_frequency,
+              20,prob2,
+              18,ones_frequency);
     }
 }
 
@@ -485,7 +502,7 @@ int main(int argc, char *argv[]) {
             }
         }
 
-        //printf("symbol_count %" PRIu64 ", symbol %d current_run %" PRIu64 " last_symbol %d\n",symbol_count, symbol,current_run, last_symbol);
+        //printf("symbol_count %*" PRIu64 ", symbol %*d current_run %*" PRIu64 " last_symbol %*d\n",10,symbol_count, 10,symbol,10,current_run,10, last_symbol);
     } while (1==1);
 
     
