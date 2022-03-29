@@ -1,6 +1,6 @@
 # runs_distribution
 
-##A C program to find the distribution of binary run lengths in binary data.
+## A C program to find the distribution of binary run lengths in binary data.
 
 ```
 ~/src/runs_distribution> ./runs_distribution -h
@@ -11,7 +11,7 @@ usage: pattern_count [-hvr] <filename>
    -h    --help         Print out this usage information.
 ```
 
-E.G.
+## Examples
 
 Run length frequency halves for each additional bit of length over uniform data.
 
